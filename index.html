@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Sales and Payment Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Shop Sales and Payment Tracker</h1>
+
+    <!-- Input Section for New Transactions -->
+    <div class="input-section">
+      <h2>Enter New Data</h2>
+      <label for="sale">Sale Amount:</label>
+      <input type="number" id="sale" placeholder="Enter sale amount">
+     
+      <label for="payment">Payment Deductions:</label>
+      <input type="number" id="payment" placeholder="Enter payment amount">
+     
+      <label for="sideAmount">Side Amount (Deductions):</label>
+      <input type="number" id="sideAmount" placeholder="Enter side amount deduction">
+      
+      <label for="note">Additional Notes:</label>
+      <textarea id="note" placeholder="Enter any notes" rows="4"></textarea>
+      <button id="recordButton" onclick="recordTransaction()">Record Transaction</button>
+    </div>
+
+    <!-- Date Range Section for Filtering and Calculating Totals -->
+    <div class="date-range-section">
+      <h2>View and Calculate Totals for Date Range</h2>
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate">
+      <button onclick="viewTransactionsForRange()">View Transactions</button>
+      <button onclick="calculateTotalsForRange()">Calculate Totals</button>
+      
+      <div id="rangeTransactionHistory">
+        <h3>Transactions in Date Range</h3>
+        <ul id="filteredTransactionHistory"></ul>
+      </div>
+      
+      <div id="rangeTotals">
+        <h3>Totals in Date Range</h3>
+        <p>Total Sales: ₹<span id="totalSalesRange">0</span></p>
+        <p>Total Payments: ₹<span id="totalPaymentsRange">0</span></p>
+        <p>Total Side Deductions: ₹<span id="totalSideAmountRange">0</span></p>
+        <p>Remaining Balance: ₹<span id="balanceRange">0</span></p>
+      </div>
+    </div>
+
+    <!-- Display Section for Daily and Monthly Summary -->
+    <div class="display-section">
+      <h2>Today's Summary</h2>
+      <p>Total Sales Today: ₹<span id="totalSalesToday">0</span></p>
+      <p>Total Payments Today: ₹<span id="totalPaymentsToday">0</span></p>
+      <p>Total Side Deductions Today: ₹<span id="totalSideAmountToday">0</span></p>
+      <p>Remaining Balance Today: ₹<span id="balanceToday">0</span></p>
+
+      <h2>Monthly Summary</h2>
+      <p>Total Sales This Month: ₹<span id="totalSalesMonth">0</span></p>
+      <p>Total Payments This Month: ₹<span id="totalPaymentsMonth">0</span></p>
+      <p>Total Side Deductions This Month: ₹<span id="totalSideAmountMonth">0</span></p>
+      <p>Remaining Balance This Month: ₹<span id="balanceMonth">0</span></p>
+    </div>
+
+    <!-- Daily Transaction History Section -->
+    <div class="history-section">
+      <h2>Daily Transaction History</h2>
+      <ul id="transactionHistory"></ul>
+    </div>
+
+    <!-- Monthly Transaction History Section -->
+    <div class="monthly-history-section">
+      <h2>Monthly Sales History</h2>
+      <ul id="monthlyHistory"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
